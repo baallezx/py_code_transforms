@@ -42,15 +42,6 @@ class ntree(object):
 		for i in cnode.children:
 			self.walk(i)
 
-#	def search(self,cnode,val):
-#		if cnode.val == val:
-#			return cnode
-#		elif not cnode.children:
-#			return
-#		else:
-#			for i in cnode.children:
-#				self.search(i,val)
-
 	def search(self,cnode,val):
 		q = [cnode]
 		while q:
@@ -64,22 +55,11 @@ class ntree(object):
 
 	def dsearch(self,cnode,val):
 		print str('  '*cnode.indent)+str(cnode.val)+' ->> '+str(hex(id(cnode)))
-#		def _dsearch(cnode,val): # visit
-#			if cnode.val == val:
-#				return cnode
-#			if cnode.children:
-#				for i in cnode.children:
-#					if i.val != val:
-#						_dsearch(i,val)
 		if cnode.val == val:
 			return cnode
 		if cnode.children:
 			for i in cnode.children:
 				self.dsearch(i,val)
-#				if cnode.val == val:
-#					return cnode
-#				else:
-#					dsearch(i,val)
 		return None
 
 	def insert(self,tnode,cnode,place=None):
